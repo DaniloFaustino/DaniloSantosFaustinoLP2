@@ -18,7 +18,7 @@ namespace ExercicioRevisao
         static void Main(string[] args)
         {
             int n;
-            Console.WriteLine("Informe a quantidade de carros"); 
+            Console.WriteLine("Informe a quantidade de carros");
             n = int.Parse(Console.ReadLine());
             Carro[] carros = new Carro[n];
 
