@@ -27,15 +27,29 @@ namespace ObjetoNoPlano
             Console.Write("Digite comando: ");
             ConsoleKey comando = Console.ReadKey().Key;
 
-            if (comando == ConsoleKey.RightArrow)
+            while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
-                /* As duas linhas abaixo só funcionarão corretamente caso a 
-                 * classe Objeto2D tenha sido construida de forma adequada, 
-                 * ou seja, que saiba realizar as tarefas de andar para a direita 
-                 * e de retornar uma string exibindo suas coordenadas */
-
-                obj.AndarParaDireita();
-                Console.WriteLine(obj.Coordenadas());
+                ConsoleKey direcao = Console.ReadKey().Key;
+                if (direcao == ConsoleKey.RightArrow)
+                {
+                    obj.AndarParaDireita();
+                    Console.WriteLine(obj.Coordenadas());
+                }
+                if (direcao == ConsoleKey.LeftArrow)
+                {
+                    obj.AndarParaEsquerda();
+                    Console.WriteLine(obj.Coordenadas());
+                }
+                if (direcao == ConsoleKey.UpArrow)
+                {
+                    obj.AndarParaCima();
+                    Console.WriteLine(obj.Coordenadas());
+                }
+                if (direcao == ConsoleKey.DownArrow)
+                {
+                    obj.AndarParaBaixo();
+                    Console.WriteLine(obj.Coordenadas());
+                }
             }
         }
     }
