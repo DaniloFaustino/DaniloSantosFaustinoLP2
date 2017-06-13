@@ -24,11 +24,10 @@ namespace ObjetoNoPlano
             obj.y = y;
             /* COMPLETAR: Inicialização da posição do objeto */
 
-            
-            while (Console.ReadKey().Key != ConsoleKey.Escape)
+            Console.Write("Digite comando: ");
+            ConsoleKey direcao = Console.ReadKey().Key;
+            while (direcao != ConsoleKey.Escape)
             {
-                Console.Write("Digite comando: ");
-                ConsoleKey direcao = Console.ReadKey().Key;
                 if (direcao == ConsoleKey.RightArrow)
                 {
                     obj.AndarParaDireita();
@@ -49,6 +48,9 @@ namespace ObjetoNoPlano
                     obj.AndarParaBaixo();
                     Console.WriteLine(obj.Coordenadas());
                 }
+
+                Console.Write("Digite comando: ");
+                direcao = Console.ReadKey().Key;
             }
         }
     }
