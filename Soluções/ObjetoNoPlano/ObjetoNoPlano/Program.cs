@@ -24,11 +24,10 @@ namespace ObjetoNoPlano
             obj.y = y;
             /* COMPLETAR: Inicialização da posição do objeto */
 
-            Console.Write("Digite comando: ");
-            ConsoleKey comando = Console.ReadKey().Key;
-
+            
             while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
+                Console.Write("Digite comando: ");
                 ConsoleKey direcao = Console.ReadKey().Key;
                 if (direcao == ConsoleKey.RightArrow)
                 {
