@@ -80,7 +80,7 @@ namespace _1Prova
                     ambi++;
                 }
 
-                if (bemMarcado == 1 && ambi == 1)
+                if (bemMarcado == 1 && ambi == 0)
                     Console.WriteLine(resp);
                 else
                     Console.WriteLine("*");
