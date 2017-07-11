@@ -10,15 +10,14 @@ namespace _1Prova
     {
         static void Main(string[] args)
         {
-            int A, B, C, D, E;
-            string resp = "";
-            int bemMarcado = 0, ambi = 0, n;
-
             Console.WriteLine("Informe a quantidade de questões");
-            n = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
+                int A, B, C, D, E;
+                string resp = "*";
+                int bemMarcado = 0, ambi = 0; 
                 Console.WriteLine("Informe o tom de A");
                 A = int.Parse(Console.ReadLine());
                 Console.WriteLine("Informe o tom de B");
