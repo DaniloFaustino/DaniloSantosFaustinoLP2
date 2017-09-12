@@ -6,24 +6,13 @@ using System.Threading.Tasks;
 
 namespace _8Empresa
 {
-    class Terceirizado
+    class Terceirizado: Empregado
     {
-        public int Registro { get; set; }
-        public string Nome { get; set; }
-        public double Salario { get; set; }
-        public int CPF { get; set; }
-        public string Email { get; set; }
-        public string Setor { get; set;  }
-        public string Entrada { get; set; }
         public string EmpresaMatriz { get; set; }
 
-        public Terceirizado (int r, string n, double sal, string set, string emp)
+        public Terceirizado(int reg, string data, string empresa) : base(reg, data)
         {
-            Registro = r;
-            Nome = n;
-            Salario = sal;
-            Setor = set;
-            EmpresaMatriz = emp;
+            this.EmpresaMatriz = empresa;
         }
     }
 }

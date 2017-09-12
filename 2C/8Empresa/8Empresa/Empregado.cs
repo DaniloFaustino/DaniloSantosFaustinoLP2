@@ -6,24 +6,16 @@ using System.Threading.Tasks;
 
 namespace _8Empresa
 {
-    class Empregado
+    class Empregado: Funcionario
     {
-        public int Registro { get; set; }
-        public string Nome { get; set; }
-        public double Salario { get; set; }
-        public int CPF { get; set; }
-        public string Email { get; set;  }
-        public string Setor { get; set; }
+        public string Gerente { get; set; }
         public string Entrada { get; set; }
-        
-        public Empregado (int r, string n, double sal, string set)
-        {
-            Registro = r;
-            Nome = n;
-            Salario = sal;
-            Setor = set;
-        }
+        public Gerente gente { get; set; }
 
+        public Empregado(int reg, string data) : base(reg)
+        {
+            this.Entrada = data;
+        }
 
 
     }
