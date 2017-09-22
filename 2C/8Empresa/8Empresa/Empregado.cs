@@ -8,11 +8,11 @@ namespace _8Empresa
 {
     class Empregado: Funcionario
     {
-        public string Gerente { get; set; }
-        public string Entrada { get; set; }
-        public Gerente gente { get; set; }
 
-        public Empregado(int reg, string data) : base(reg)
+        public string Entrada { get; set; }
+        public Gerente gerente { get; set; }
+
+        public Empregado(int reg, string data, string cpf) : base(reg, cpf)
         {
             this.Entrada = data;
         }
