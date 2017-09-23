@@ -12,7 +12,7 @@ namespace _8Empresa
         public string Nome { get; set; }
         public double Salario { get; set; }
 
-        private string cpf;
+        protected string cpf;
         public string CPF
         {
             get
