@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace PrimeiroBank
 {
@@ -10,11 +11,20 @@ namespace PrimeiroBank
     {
         static void Main(string[] args)
         {
-            MySqlConnection conex = new MySqlConnection("Server=localhost; Database=organizador; Uid=root; Pwd=");
-            MySqlCommand comd = new MySqlCommand();
+            SqlConnection conex = new SqlConnection("Data Source = EN2LIA_20; Initial Catalog = Organizador; Integrated Security = SSPI;");
+            SqlCommand comd = new SqlCommand();
 
             comd.Connection = conex;
-            comd.CommandText = "INSERT INTO (Id, Nome) VALUE (1, 'Dynasty');";
+            comd.CommandText = "INSERT INTO SERIE(Id, Nome, Emissora, Genero) VALUES (1, 'Dynasty', 'CW', 'Drama');";
+
+
+            conex.Open();
+            comd.ExecuteNonQuery();
+            conex.Close();
+
+           
+
+            Console.WriteLine("OK");
         }
     }
 }
