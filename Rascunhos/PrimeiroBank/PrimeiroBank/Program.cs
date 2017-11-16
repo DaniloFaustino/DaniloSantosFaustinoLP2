@@ -11,30 +11,64 @@ namespace PrimeiroBank
     {
         static void Main(string[] args)
         {
-            Carro car = new Carro();
-            Console.WriteLine("Insira a marca");
-            car.Marca = Console.ReadLine();
-            Console.WriteLine("Insira o modelo");
-            car.Modelo = Console.ReadLine();
-            Console.WriteLine("Insira a cor");
-            car.Cor = Console.ReadLine();
-            Console.WriteLine("Insira a placa");
-            car.Placa = Console.ReadLine();
-            Console.WriteLine("Insira a potência");
-            car.Potencia = int.Parse(Console.ReadLine());
-           
+            Console.WriteLine("1 - Cadastrar \n2 - Remover");
+            int fazer = int.Parse(Console.ReadLine());
+            
 
-            SqlConnection conex = new SqlConnection("Data Source = EN2LIC_10; Initial Catalog = Veiculo; Integrated Security = SSPI;");
+            Carro car = new Carro();
+
+            if (fazer == 1)
+            {
+                Console.WriteLine("Insira a marca");
+                car.Marca = Console.ReadLine();
+                Console.WriteLine("Insira o modelo");
+                car.Modelo = Console.ReadLine();
+                Console.WriteLine("Insira a cor");
+                car.Cor = Console.ReadLine();
+                Console.WriteLine("Insira a placa");
+                car.Placa = Console.ReadLine();
+                Console.WriteLine("Insira a potência");
+                car.Potencia = int.Parse(Console.ReadLine());
+            }
+            else if (fazer == 2)
+            {
+                Console.WriteLine("21 - Id \n22 - Potência Máxima \n 23 -Modelo + Cor");
+                fazer = int.Parse(Console.ReadLine());
+
+            }
+          
+           
+                      
+
+            SqlConnection conex = new SqlConnection("Data Source = EN2LIA_05; Initial Catalog = Veiculo; Integrated Security = SSPI;");
             SqlCommand comd = new SqlCommand();
 
             comd.Connection = conex;
-            comd.CommandText = car.Registrar();
-            comd.Parameters.AddWithValue("Marca", car.Marca);
-            comd.Parameters.AddWithValue("Modelo", car.Modelo);
-            comd.Parameters.AddWithValue("Cor", car.Cor);
-            comd.Parameters.AddWithValue("Placa", car.Placa);
-            comd.Parameters.AddWithValue("Potencia", car.Potencia);
-
+            if (fazer == 1)
+            {
+                comd.CommandText = car.Registrar();
+                comd.Parameters.AddWithValue("Marca", car.Marca);
+                comd.Parameters.AddWithValue("Modelo", car.Modelo);
+                comd.Parameters.AddWithValue("Cor", car.Cor);
+                comd.Parameters.AddWithValue("Placa", car.Placa);
+                comd.Parameters.AddWithValue("Potencia", car.Potencia);
+            }
+            else if (fazer == 21)
+            {
+                comd.CommandText = car.RemoverId();
+                comd.Parameters.AddWithValue("Id", car.Id);
+            }
+            else if (fazer == 22)
+            {
+                comd.CommandText = car.RemovePotencia();
+                comd.Parameters.AddWithValue("Potencia", car.Potencia);
+            }
+            else if (fazer == 23)
+            {
+                comd.CommandText = car.RemoveModeloCor();
+                comd.Parameters.AddWithValue("Modelo", car.Modelo);
+                comd.Parameters.AddWithValue("Cor", car.Cor);
+            }
 
 
             conex.Open();

@@ -21,5 +21,29 @@ namespace PrimeiroBank
                                  INTO CARRO (Marca, Modelo, Cor, Placa, Potencia) 
                                  VALUES (@Marca, @Modelo, @Cor, @Placa, @Potencia);");
         }
+        public string RemoverId()
+        {
+            Console.WriteLine("Informe o Id");
+            Id = int.Parse(Console.ReadLine());
+            return String.Format(@"DELET FROM CARRO 
+                                 WHERE Id =  @Id;");
+        }
+        public string RemovePotencia()
+        {
+            Console.WriteLine("Informe a Potência");
+            Potencia = int.Parse(Console.ReadLine());
+            return String.Format(@"DELET FROM CARRO 
+                                 WHERE Potencia = @Potencia;");
+        }
+        public string RemoveModeloCor()
+        {
+            Console.WriteLine("Informe o modelo");
+            Modelo = Console.ReadLine();
+            Console.WriteLine("Informe a cor");
+            Cor = Console.ReadLine();
+            return String.Format(@"DELET FROM CARRO 
+                                 WHERE Modelo = @Modelo && Cor = @Cor;");
+        }
+
     }
 }
