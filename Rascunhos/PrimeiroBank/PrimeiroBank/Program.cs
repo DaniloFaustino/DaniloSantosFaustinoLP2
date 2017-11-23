@@ -13,7 +13,7 @@ namespace PrimeiroBank
         {
             Console.WriteLine("1 - Cadastrar \n2 - Remover");
             int fazer = int.Parse(Console.ReadLine());
-            
+                     
 
             Carro car = new Carro();
 
@@ -32,10 +32,12 @@ namespace PrimeiroBank
             }
             else if (fazer == 2)
             {
-                Console.WriteLine("21 - Id \n22 - Potência Máxima \n 23 -Modelo + Cor");
+                Console.WriteLine("3 - Id \n4 - Potência Máxima \n5 - Modelo + Cor");
                 fazer = int.Parse(Console.ReadLine());
 
             }
+
+           
           
            
                       
@@ -44,6 +46,8 @@ namespace PrimeiroBank
             SqlCommand comd = new SqlCommand();
 
             comd.Connection = conex;
+            
+
             if (fazer == 1)
             {
                 comd.CommandText = car.Registrar();
@@ -53,23 +57,22 @@ namespace PrimeiroBank
                 comd.Parameters.AddWithValue("Placa", car.Placa);
                 comd.Parameters.AddWithValue("Potencia", car.Potencia);
             }
-            else if (fazer == 21)
+            else if (fazer == 3)
             {
                 comd.CommandText = car.RemoverId();
                 comd.Parameters.AddWithValue("Id", car.Id);
             }
-            else if (fazer == 22)
+            else if (fazer == 4)
             {
                 comd.CommandText = car.RemovePotencia();
                 comd.Parameters.AddWithValue("Potencia", car.Potencia);
             }
-            else if (fazer == 23)
+            else if (fazer == 5)
             {
                 comd.CommandText = car.RemoveModeloCor();
                 comd.Parameters.AddWithValue("Modelo", car.Modelo);
                 comd.Parameters.AddWithValue("Cor", car.Cor);
             }
-
 
             conex.Open();
             comd.ExecuteNonQuery();

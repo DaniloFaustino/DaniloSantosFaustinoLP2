@@ -25,14 +25,14 @@ namespace PrimeiroBank
         {
             Console.WriteLine("Informe o Id");
             Id = int.Parse(Console.ReadLine());
-            return String.Format(@"DELET FROM CARRO 
+            return String.Format(@"DELETE FROM CARRO 
                                  WHERE Id =  @Id;");
         }
         public string RemovePotencia()
         {
             Console.WriteLine("Informe a Potência");
             Potencia = int.Parse(Console.ReadLine());
-            return String.Format(@"DELET FROM CARRO 
+            return String.Format(@"DELETE FROM CARRO 
                                  WHERE Potencia = @Potencia;");
         }
         public string RemoveModeloCor()
@@ -41,8 +41,8 @@ namespace PrimeiroBank
             Modelo = Console.ReadLine();
             Console.WriteLine("Informe a cor");
             Cor = Console.ReadLine();
-            return String.Format(@"DELET FROM CARRO 
-                                 WHERE Modelo = @Modelo && Cor = @Cor;");
+            return String.Format(@"DELETE FROM CARRO 
+                                 WHERE Modelo = @Modelo AND Cor = @Cor;");
         }
 
     }
